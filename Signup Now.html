@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Signup Now - Hostel </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Laundry service signup" name="keywords">
+    <meta content="Signup for Hostel  laundry service" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Signup Form Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <h2 class="text-center mb-4">Signup for Hostel Laundry Service</h2>
+                    <form action="process_payment.php" method="post">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomNo">Room No:</label>
+                            <input type="text" class="form-control" id="roomNo" name="roomNo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hostelName">Hostel Name:</label>
+                            <input type="text" class="form-control" id="hostelName" name="hostelName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gmail">Gmail ID:</label>
+                            <input type="email" class="form-control" id="gmail" name="gmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNo">Phone No:</label>
+                            <input type="tel" class="form-control" id="phoneNo" name="phoneNo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="washingStyle">Washing Style:</label>
+                            <select class="form-control" id="washingStyle" name="washingStyle" required>
+                                <option value="dryCleaning">Dry Cleaning - Rs.45/kilo</option>
+                                <option value="washAndLaundry">Wash & Laundry - Rs.75/kilo</option>
+                                <option value="curtainLaundry">Curtain Laundry - Rs.45</option>
+                                <option value="suitsCleaning">Suits Cleaning - Rs.110/kilo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="shirtCount">Number of Shirts:</label>
+                            <input type="number" class="form-control dress-input" id="shirtCount" name="shirtCount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pantCount">Number of Pants:</label>
+                            <input type="number" class="form-control dress-input" id="pantCount" name="pantCount" required>
+                        </div>
+                        <!-- Add more dress options as needed -->
+                        <button type="button" class="btn btn-primary" onclick="calculateRate()">Calculate Rate</button>
+                        <div class="form-group mt-3">
+                            <label for="totalRate">Total Rate:</label>
+                            <input type="text" class="form-control" id="totalRate" name="totalRate" readonly>
+                        </div>
+                        <a href="payment.html" class="btn btn-primary py-2 px-4">Proceed to Payment</a>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Signup Form End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Custom Script for Rate Calculation -->
+    <script>
+        function calculateRate() {
+            // Define dress rates (replace these with your actual rates)
+            var dryCleaningRate = 45;
+            var washAndLaundryRate = 75;
+            var curtainLaundryRate = 45;
+            var suitsCleaningRate = 110;
+
+            // Get user input
+            var washingStyle = document.getElementById('washingStyle').value;
+            var shirtCount = parseInt(document.getElementById('shirtCount').value) || 0;
+            var pantCount = parseInt(document.getElementById('pantCount').value) || 0;
+
+            // Calculate total rate based on washing style
+            var totalRate = 0;
+            switch (washingStyle) {
+                case 'dryCleaning':
+                    totalRate = (shirtCount + pantCount) * dryCleaningRate;
+                    break;
+                case 'washAndLaundry':
+                    totalRate = (shirtCount + pantCount) * washAndLaundryRate;
+                    break;
+                case 'curtainLaundry':
+                    totalRate = curtainLaundryRate;
+                    break;
+                case 'suitsCleaning':
+                    totalRate = (shirtCount + pantCount) * suitsCleaningRate;
+                    break;
+            }
+
+            // Display total rate
+            document.getElementById('totalRate').value = totalRate;
+        }
+    </script>
+</body>
+
+</html>

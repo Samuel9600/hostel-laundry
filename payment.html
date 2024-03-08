@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Payment Details - Hostel Laundry Service</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Laundry service payment details" name="keywords">
+    <meta content="Payment details for Hostel laundry service" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Payment Details Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <h2 class="text-center mb-4">Payment Details</h2>
+                    <form action="process_payment.php" method="post">
+                        <div class="form-group">
+                            <label for="totalRate">Total Amount:</label>
+                            <input type="text" class="form-control" id="totalRate" name="totalRate" value="<!-- Include PHP code to get the calculated total rate -->" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentImage">Payment Image (Scan QR Code):</label>
+                            <img src="C:\Users\samuel\OneDrive\Desktop\LS\img\paymentimage.jpg" alt="Payment Image" class="img-fluid" height="100" width="100">
+                        </div>
+                        <button type="submit" class="btn btn-success">Complete Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Payment Details End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
